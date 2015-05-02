@@ -1,0 +1,309 @@
+@font-face {
+    font-family: Segoe;
+    src:font-url('segoeui.ttf');
+}
+* {
+	font-family: Segoe;
+	margin: 0px;
+	padding: 0px;
+}
+a{
+	text-decoration: none;
+}
+body
+{
+	background: #f1f4f9;
+}
+button {
+	cursor: pointer;
+}
+.header
+{
+	height: 70px;
+	background: white;
+}
+.header-content
+{
+	width: 970px;
+	margin:0px auto;
+}
+.header-logo
+{
+	float: left;
+	font-size: 30px;
+	line-height: 70px;
+}
+.logo-blue
+{
+	color: #0099cc;
+}
+.logo-green
+{
+	color: #1abc9c;
+}
+.header-nav
+{
+	float: right;
+}
+.header-nav ul li
+{
+	list-style: none;
+	float: left;
+}
+.header-nav ul li a
+{
+	display: block;
+	line-height: 70px;
+	color: #00c17f;
+	padding:0px 20px;
+}
+.header-nav ul li a:hover
+{
+	color: white;
+	background-color: #00c17f;
+}
+.page
+{
+	width: 1170px;
+	margin: 0px auto;
+}
+.left-col
+{
+	width: 270px;
+	margin: 0px 30px 0px 15px;
+	float: left;
+}
+.sidebar
+{
+	width: 225px;
+	height: 300px;
+	background: white;
+	padding: 20px;
+	margin-top: 95px;
+}
+.login-form .login-label, .login-form .password-label
+{
+	float: left;
+	padding-left:5px;
+	color: #414a51;
+	margin-bottom:3px;
+}
+.login-form input[type="text"], .login-form input[type="password"]
+{
+	width: 215px;
+	height: 30px;
+	float: left;
+	border: none;
+	background-color: #f1f4f9;
+	margin-bottom: 10px;
+	padding: 0px 5px;
+	line-height: 30px;
+}
+.login-button
+{
+	background-color: #0099cc	;
+	color: white;
+	border: none;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	float: left;
+	margin: 0px 50px;
+	border-radius: 3px;
+	text-align: center;
+	font-size: 16px;
+}
+.selector-img
+{
+	margin: 20px 17px 0px 17px;
+}
+.social-buttons
+{
+	float: left;
+	margin-top: 10px
+}
+.facebook-btn, .vk-btn
+{
+	width: 160px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #207099;
+	color: white;
+	font-size: 16px;
+	margin: 5px 30px;
+	border:none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.vk-btn
+{
+	background-color: #0099cc;
+}
+.right-col
+{
+	width: 770px;
+	float: right;
+}
+.notify-container
+{
+	height: 70px;
+	margin-bottom: 5px;
+}
+.reg-notify
+{
+	width: 770px;
+	height: 50px;
+	background-color: #82D3FA;
+	text-align: center;
+	margin: 20px 0px;
+	line-height: 50px;
+}
+.red-btn
+{
+	height: 29px;
+	border-bottom: '1px solid! #e2544c';
+	background-color: #e8645a;
+	text-align: center;
+	color: white;
+	line-height: 30px;
+	padding: 0px 10px;
+	border: none;
+	border-radius: 3px;
+}
+
+.green-btn
+{
+	height: 29px;
+	border-bottom: '1px solid! #1da565';
+	background-color: #00c17f;
+	text-align: center;
+	color: white;
+	line-height: 30px;
+	padding: 0px 10px;
+	border: none;
+	border-radius: 3px;
+}
+.server
+{
+	height: 150px;
+	background-color: white;
+	float: left;
+	margin-bottom: 20px;
+}
+.server-image
+{
+	float: left;
+	margin: 10px;
+}
+.header-details
+{
+	float: left;
+	width: 440px;
+}
+.title
+{
+	float: left;
+	font-size: 24px;
+	color: #414a51;
+	text-align: left;
+	margin-top: 10px;
+}
+.server-rating
+{
+	float: right;
+}
+.rating-img
+{
+  background: url("rate.png") 0 0 no-repeat;
+  background-position: 50% -25px;
+  width: 130px;
+  height: 20px;
+  display: block;
+  margin-top: 18px;
+  float: right;
+}
+.vote-count
+{
+	float: left;
+	margin: 22px 5px 0px 0px;
+	font-size: 12px;
+	color: #414a51;
+}
+.sep
+{
+	width:435px;
+	height: 1px;
+	background-image: image-url("sep.png");
+	float: left;
+}
+.server-description
+{
+	  float: left;
+	  width: 430px;
+	  max-height: 60px;
+	  font-size: 14px;
+	  color: #414a51;
+	  overflow: hidden;
+	  word-wrap: break-word;
+	  margin: 6px 3px 0px 3px;
+}
+.server-details
+{
+    float: left;
+  	width: 440px;
+  	overflow: hidden;
+}
+.rate-badge
+{
+  float: left;
+  height: 14px;
+  font-size: 13px;
+  background: #00b16a;
+  border-radius: 3px;
+  padding: 2px 3px;
+  color: white;
+  min-width: 30px;
+  text-align: center;
+  margin-left: 3px;
+  font-family: monospace;
+  line-height: 14px;
+}
+.server-rates
+{
+	margin-top: 13px;
+    float: left;
+}
+.server-award
+{
+	float: left;
+  	width: 150px;
+  	height: 150px;
+}
+img.first-place
+{
+	margin-left: 14px; 
+}
+.server-award {
+  text-align: center;
+  line-height: 150px;
+  font-size: 81px;
+}
+.server-award.second {
+  background-image: url("award-2.png");
+  background-repeat: no-repeat;
+  background-position-x: 14px;
+}
+.server-award.first {
+  background-image: url("award.png");
+  background-repeat: no-repeat;
+  background-position-x: 14px;
+}
+.server-award.top50 {
+  color: rgb(55, 174, 55);
+}
+.server-award.top100 {
+  color: rgb(55, 133, 174);
+}
+.server-award.top1000 {
+  color: rgb(190, 102, 48);
+}
