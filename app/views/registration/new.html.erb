@@ -1,0 +1,31 @@
+<div class="registration">
+  <%= form_for(:user, :html => { class: 'reg-form' }) do |f| %>
+    <h1>Registration</h1>
+    <fieldset>
+      <legend class="reg-form"><span class="number">1</span>Basic info</legend>
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+ 
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+ 
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+ 
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+ 
+      <%= f.label :role %>
+      <%= f.select(:role,[['Player', 1], ['Server administrator', 2]]) %>
+ 
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday %>
+    </fieldset>
+
+    <center class="rules">
+          <%= f.check_box :rules %>
+          <%= f.label :rules, 'I accept all site rules!', :class => 'light' %>
+    </center>
+    <%= f.submit 'Sign up', :class => 'reg-form' %>
+  <% end %>
+</div>
