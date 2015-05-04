@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'registration/new'
+  devise_for :users, :skip => ['registrations']
+  
+  # Override standard devise routes
+  as :user do
+    get  'registration' => 'devise/registrations#new',    :as => :user_registration
+    post 'registration' => 'devise/registrations#create', :as => :new_user_registration
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

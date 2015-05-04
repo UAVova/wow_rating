@@ -75,8 +75,8 @@ button {
 }
 .sidebar
 {
-	width: 225px;
-	height: 300px;
+	width: 265px;
+	height: 340px;
 	background: white;
 	padding: 20px;
 	margin-top: 95px;
@@ -90,7 +90,7 @@ button {
 }
 .login-form input[type="text"], .login-form input[type="password"]
 {
-	width: 215px;
+	width: 100%;
 	height: 30px;
 	float: left;
 	border: none;
@@ -256,7 +256,7 @@ button {
 .rate-badge
 {
   float: left;
-  height: 14px;
+  height: 18px;
   font-size: 13px;
   background: #00b16a;
   border-radius: 3px;
@@ -291,12 +291,12 @@ img.first-place
 .server-award.second {
   background-image: url("award-2.png");
   background-repeat: no-repeat;
-  background-position-x: 14px;
+  background-position: 14px 0px;
 }
 .server-award.first {
   background-image: url("award.png");
   background-repeat: no-repeat;
-  background-position-x: 14px;
+  background-position: 14px 0px;
 }
 .server-award.top50 {
   color: rgb(55, 174, 55);
@@ -353,7 +353,7 @@ select {
   padding: 15px;
   width: 100%;
   background-color: #e8eeef;
-  color: #8a97a0;
+  color: #535353;
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 30px;
 }
@@ -365,7 +365,7 @@ input[type="checkbox"] {
  
 select {
   padding: 6px;
-  height: 32px;
+  height: auto;
   border-radius: 2px;
 }
  
