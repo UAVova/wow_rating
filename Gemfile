@@ -29,7 +29,8 @@ gem 'pg'
 gem 'devise'
 # Date validator
 gem 'validates_timeliness', '~> 3.0'
-
+# Omniauth providers
+gem 'omniauth-facebook'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users, :skip => ['registrations']
+  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}, 
+                     :skip => ['registrations']
   
   # Override standard devise routes
   as :user do

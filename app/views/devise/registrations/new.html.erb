@@ -9,13 +9,15 @@
  
       <%= f.label :email %>
       <%= f.email_field :email %>
- 
-      <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "off" %>
- 
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
- 
+
+      <% if resource.password_required? %>
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "off" %>
+   
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <% end %>
+      
       <%= f.label :role %>
       <%= f.select(:role,[['Player', 1], ['Server administrator', 2]]) %>
  
