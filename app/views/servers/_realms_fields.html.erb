@@ -1,0 +1,19 @@
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :rates %> <i>(from 1 to 9999 without "x")</i><br>
+      <%= f.text_field :rates %>
+    </div>
+
+    <div class="field">
+      <%= f.label :online, "Online players" %> <i>(stable online player count during the day)</i><br>
+      <%= f.text_field :online %>
+    </div>
+  </fieldset>

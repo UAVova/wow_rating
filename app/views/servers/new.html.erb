@@ -1,49 +1,39 @@
-<div class="servers-container">
-  <% @servers.each_with_index do |server, index| %>
-  <% if (0..1).include?(index) %>
-    <% 
-       award = "award-#{index+1}" 
-       index = ""
-    %>
-  <% else %>
-    <% award = "" %>
-    <% index += 1 %>
-  <% end %>
-  <div class="server">
-    <div class="server-image">
-      <%= image_tag server.image.url(:thumb) %>
+<div class="profile">
+
+<%= form_for(@server, url: server_new_path, html: { multipart: true, method: :post, class: 'profile-form'}) do |f| %>
+  <fieldset>
+    <legend class="reg-form"><span class="number">1</span>Server info</legend>
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true %>
+
+    <div class="field">
+      <%= f.label :description %>
+      <i>(First 200 symbols will be displayed on the main page)</i>
+      <%= f.text_area :description %>
     </div>
-    <div class="server-details">
-      <div class="header-details">
-        <span class="title">
-          <%= server.title %>
-        </span>
-        
-        <div class="server-rating">
-          <span class="vote-count">
-            <%= server.votes %>
-          </span>
-          <a href="#" class="rating-img star-<%= server.rating.round %>">
-          </a>
-        </div>
-      </div>
-      <span class="sep">
-      </span>
-      <div class="server-description">
-        <%= truncate server.description, length: 200 %>
-      </div>
-      <div class="server-rates">
-        <% server.rates.split(",").map{|item| 'x'+item}.take(8).each do |rate| %>
-        <span class="rate-badge">
-          <%= rate %>
-        </span>
-        <% end %>
-      </div>
+
+    <div class="field">
+      <%= f.label :url %> <i>(site main page adress including http://)</i><br>
+      <%= f.url_field :url %>
     </div>
-    <div class="server-award <%= award %>">
-      <%= index %>
+
+    <div class="field">
+      <%= f.label :image %>
+      <label class="avatarUpload">
+        <%= f.file_field :image %>
+        <span>Choose image</span>
+      </label>
     </div>
-  </div>
-  <% end %>
-  
+
+    <legend class="reg-form"><span class="number">2</span>Add realms</legend>
+      <%= link_to_add_realms "+ Add realms", f, :realms %>
+    
+
+
+    <div class="actions">
+      <input name="commit" value="Update" class="profile-form" type="submit">
+    </div>
+  </fieldset>
+<% end %>
+
 </div>
