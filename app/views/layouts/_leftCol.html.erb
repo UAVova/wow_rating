@@ -11,8 +11,8 @@
       
       <%= image_tag 'selector.png', :class => 'selector-img' %>
       <div class="social-buttons">
-        <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook-btn" %>
-        <button class="vk-btn">Vkontake</button>
+        <%= link_to "Facebook",  user_omniauth_authorize_path(:facebook),  :class => "facebook-btn" %>
+        <%= link_to "Vkontakte", user_omniauth_authorize_path(:vkontakte), :class => "vk-btn" %>
       </div>
     </div>
   </div>

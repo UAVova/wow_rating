@@ -31,6 +31,7 @@ gem 'devise'
 gem 'validates_timeliness', '~> 3.0'
 # Omniauth providers
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
