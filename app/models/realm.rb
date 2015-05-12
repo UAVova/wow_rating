@@ -1,3 +1,3 @@
 class Realm < ActiveRecord::Base
-    belongs_to :realm_types
+    has_one :realm_type, foreign_key: "id"
 end
