@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
         user.attributes = params
         user.valid?
       end
+        session.delete("devise.user_attributes")
     else
       super
     end
