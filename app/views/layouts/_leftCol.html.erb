@@ -1,13 +1,35 @@
 <div class="left-col">
   <div class="sidebar">
+    <% if user_signed_in? %>
+    <div class="profile">
+      <div class="user-avatar">
+        <img src="#">
+        <div class="user-notify">
+          <div class="dashboard-notify unreaded"><span class="dashboard-icon"></span></div>
+          <a class="dashboard-notify unreaded appear-notify" style=""><span class="dashboard-icon"></span></a>
+          <div class="comments-notify"><span class="comments-icon"></span></div>
+          <a class="comments-notify appear-notify" style=""><span class="comments-icon"></span></a>
+          <div class="pm-notify"><span class="pm-icon"></span></div>
+          <a class="pm-notify appear-notify" style=""><span class="pm-icon"></span></a>
+        </div>
+      </div>
+      <div class="user-name"><%= current_user.username %></div>
+      <div class="user-nav">
+        <a href="#" class="user-nav-button">
+          Settings
+        </a>
+        <%= link_to "Log out", destroy_user_session_path, class: "user-nav-button" %>
+      </div>
+    </div>
+    <% else %>
     <div class="login-form">
-      <label class="login-label">Login:</label>
-      <input type="text" class="login-input">
-
-      <label class="password-label">Password:</label>
-      <input type="password" class="password-input">
-
-      <button class="login-button">Login</button>
+      <%= form_for(:user, :url => session_path(:user)) do |f| %>
+        <%= f.label :Email %>
+        <%= f.text_field :email, class: "login-input" %>
+        <%= f.label :Password %>
+        <%= f.password_field :password, class: "password-input" %>
+        <%= f.submit 'Sign in', class: "login-button" %>
+      <% end %> 
       
       <%= image_tag 'selector.png', :class => 'selector-img' %>
       <div class="social-buttons">
@@ -15,5 +37,6 @@
         <%= link_to "Vkontakte", user_omniauth_authorize_path(:vkontakte), :class => "vk-btn" %>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
