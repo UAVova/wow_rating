@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   
   # Override standard devise routes
   as :user do
-    get  'registration' => 'devise/registrations#new',    :as => :user_registration
-    post 'registration' => 'devise/registrations#create', :as => :new_user_registration
+    get    'registration' => 'registrations#new',    :as => :user_registration
+    post   'registration' => 'registrations#create', :as => :new_user_registration
+    get    'profile'      => 'devise/registrations#edit'
+    patch  'profile'      => 'devise/registrations#update'
+    put    'profile'      => 'devise/registrations#update'
+    delete 'profile'      => 'devise/registrations#destroy'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

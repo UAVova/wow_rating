@@ -319,14 +319,14 @@ img.first-place
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-.registration
+.registration, .profile
 {
   background-color: white;
   float: left;
   margin-bottom: 20px;
   width: 770px;
 }
-form.reg-form {
+form.reg-form, form.profile-form {
   max-width: 770px;
   margin: 10px auto;
   padding: 10px 20px;
@@ -375,7 +375,7 @@ select {
   border-radius: 2px;
 }
  
-button.reg-form, input[type="submit"].reg-form {
+button.reg-form, input[type="submit"].reg-form, button.profile-form, input[type="submit"].profile-form{
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #4bc970;
@@ -395,7 +395,7 @@ fieldset {
   border: none;
 }
  
-legend.reg-form {
+legend.profile-form,legend.profile-form {
   font-size: 1.4em;
   margin-bottom: 10px;
 }

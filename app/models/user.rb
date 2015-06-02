@@ -12,8 +12,14 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
-  private
-
+  def update_with_password(params, *options)
+    if encrypted_password.blank?
+      update_attributes(params, *options)
+    else
+      super
+    end
+  end
+  
   # Custom getter & setter to override standard devices password column name
   def encrypted_password
     read_attribute(:password)
@@ -22,7 +28,9 @@ class User < ActiveRecord::Base
   def encrypted_password=value
     write_attribute(:password, value)
   end
-  
+
+  private
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -40,10 +48,9 @@ class User < ActiveRecord::Base
         user.attributes = params
         user.valid?
       end
-        # In case if user wants to register using site registration next time
-        session.delete("devise.user_attributes")
     else
       super
     end
   end
+
 end
