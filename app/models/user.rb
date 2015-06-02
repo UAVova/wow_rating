@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
         user.attributes = params
         user.valid?
       end
+        # In case if user wants to register using site registration next time
         session.delete("devise.user_attributes")
     else
       super
