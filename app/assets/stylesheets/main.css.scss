@@ -228,6 +228,30 @@ button {
   margin-top: 18px;
   float: right;
 }
+.star-0
+{
+  background-position: 0px -129px;
+}
+.star-1
+{
+  background-position: 0px -103px;
+}
+.star-2
+{
+  background-position: 0px -77px;
+}
+.star-3
+{
+  background-position: 0px -51px;
+}
+.star-4
+{
+  background-position: 0px -25px;
+}
+.star-5
+{
+  background-position: 0px 0px;
+}
 .vote-count
 {
 	float: left;
@@ -299,8 +323,13 @@ img.first-place
   background-repeat: no-repeat;
   background-position: 14px 0px;
 }
-.server-award.first {
+.server-award.award-1 {
   background-image: url("award.png");
+  background-repeat: no-repeat;
+  background-position: 14px 0px;
+}
+.server-award.award-2 {
+  background-image: url("award-2.png");
   background-repeat: no-repeat;
   background-position: 14px 0px;
 }
