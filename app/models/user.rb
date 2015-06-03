@@ -4,9 +4,19 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
   validates_acceptance_of :rules, :allow_nil => false, :on => :create
-  validates :username, uniqueness: true, presence: true, format: { with: /\A[a-zA-Z0-9]+\Z/ }, length: { in: 6..16 }
+  validates :username, uniqueness: true, presence: true, 
+                       format: { with: /\A[a-zA-Z0-9]+\Z/ }, 
+                       length: { in: 6..16 }
   validates :email, presence: true, length: { in: 6..30 }, on: :create
-  validates_date :birthday, presence: true, :before => lambda { 14.years.ago }, :after => lambda { 60.years.ago }
+  validates_date :birthday, presence: true, :before => lambda { 14.years.ago }, 
+                                            :after  => lambda { 60.years.ago }
+  has_attached_file :avatar, :styles => { :thumb => "128x128>" }, :default_url => ":style/missing.png",
+                    :url  => '/assets/avatars/:id/:style/:basename.:extension',
+                    :path => ':rails_root/public/assets/avatars/:id/:style/:basename.:extension'
+  validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
+  validates_with AttachmentContentTypeValidator, :attributes => :avatar, :content_type => ["image/jpeg", "image/png"]
+  attr_accessor :delete_avatar
+  before_save :avatar_check
 
   def password_required?
     super && provider.blank?
@@ -30,6 +40,10 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def avatar_check
+    self.avatar = nil if delete_avatar
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

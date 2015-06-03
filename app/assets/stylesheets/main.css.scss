@@ -551,3 +551,28 @@ label.light {
 {
 	background-color: rgb(232, 62, 62);
 }
+label.avatarUpload input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+.avatarUpload {
+  padding: 19px 39px 18px;
+  color: #FFF;
+  background-color: #4F9CBC;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  border-style: solid;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-width: 1px 1px 3px;
+  box-shadow: 0px -1px 0px rgba(255, 255, 255, 0.1) inset;
+  border-color: #4F92BC;
+  width: 500px;
+  margin-bottom: 10px;
+  margin-left: 120px;
+}

@@ -32,6 +32,8 @@ gem 'validates_timeliness', '~> 3.0'
 # Omniauth providers
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
+# Paperclip
+gem "paperclip", "~> 4.2"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

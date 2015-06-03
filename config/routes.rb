@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   
   # Override standard devise routes
   as :user do
-    get    'registration' => 'registrations#new',    :as => :user_registration
-    post   'registration' => 'registrations#create', :as => :new_user_registration
-    get    'profile'      => 'devise/registrations#edit'
+    get    'registration' => 'registrations#new',         :as => :user_registration
+    post   'registration' => 'registrations#create',      :as => :new_user_registration
+    get    'profile'      => 'devise/registrations#edit', :as => :edit_user_profile
     patch  'profile'      => 'devise/registrations#update'
     put    'profile'      => 'devise/registrations#update'
     delete 'profile'      => 'devise/registrations#destroy'

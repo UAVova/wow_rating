@@ -1,6 +1,6 @@
 <div class="profile">
 
-<%= form_for(resource, as: resource_name, url: profile_path, html: { method: :put, class: 'profile-form'}) do |f| %>
+<%= form_for(resource, as: resource_name, url: profile_path, html: { multipart: true, method: :put, class: 'profile-form'}) do |f| %>
   <%= devise_error_messages! %>
   <fieldset>
     <legend class="profile-form">Edit Profile</legend>
@@ -10,6 +10,21 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
+
+    <div class="field">
+      <%= f.label :avatar %>
+      <label class="avatarUpload">
+        <%= f.file_field :avatar %>
+        <span>Choose avatar</span>
+      </label>
+      <% if f.object.avatar.file? && devise_error_messages!.nil? %>
+        <center class="rules">
+            <%= f.check_box :delete_avatar %>
+            <%= f.label :delete_avatar, 'Delete avatar!', :class => 'light' %>
+        </center>
+        <% end %>
+    </div>
+
     <div class="field">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
       <%= f.password_field :password, autocomplete: "off" %>
