@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  rates: MyString
+  type: 
+  online: 
+  creation_date: 2015-06-04
+  version: 
+
+two:
+  name: MyString
+  description: MyText
+  rates: MyString
+  type: 
+  online: 
+  creation_date: 2015-06-04
+  version: 
