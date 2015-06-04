@@ -1,3 +1,3 @@
 class Realm < ActiveRecord::Base
-	belongs_to :realm_type
+    belongs_to :realm_types
 end
