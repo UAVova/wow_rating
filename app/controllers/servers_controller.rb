@@ -1,5 +1,5 @@
 class ServersController < ApplicationController
-  def index
-  	@servers = Server.order("rating DESC")
+  def new
+  	@servers = Server.new
   end
 end
