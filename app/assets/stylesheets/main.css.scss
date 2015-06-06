@@ -357,11 +357,13 @@ img.first-place
   margin-bottom: 20px;
   width: 770px;
 }
-form.reg-form, form.profile-form {
+form.reg-form, div.profile-form {
+  background-color: white;
+  float: left;
+  margin-bottom: 20px;
+  width: 770px;
   max-width: 770px;
-  margin: 10px auto;
   padding: 10px 20px;
-  border-radius: 8px;
 }
  
 h1 {
@@ -412,7 +414,7 @@ select {
   border-radius: 2px;
 }
  
-button.reg-form, input[type="submit"].reg-form, button.profile-form, input[type="submit"].profile-form, add-realm-btn{
+button.reg-form, input[type="submit"].reg-form, button.submit-btn, input[type="submit"].submit-btn{
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #4bc970;
@@ -426,9 +428,13 @@ button.reg-form, input[type="submit"].reg-form, button.profile-form, input[type=
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
 }
- 
+input[type="submit"].submit-btn
+{
+  margin-bottom: 50px;
+}
+
 fieldset {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   border: none;
 }
  
@@ -592,7 +598,7 @@ label.avatarUpload input[type="file"] {
     position: fixed;
     top: -1000px;
 }
-.avatarUpload {
+.avatarUpload, .add-realm-btn, .remove-realm-btn {
   padding: 19px 39px 18px;
   color: #FFF;
   background-color: #4F9CBC;
@@ -618,9 +624,16 @@ legend.reg-form
   font-size: 24px;
   margin: 15px 0px;
 }
-.add-realm-btn
+.add-realm-btn, .remove-realm-btn
 {
   float: left;
   width: 50%;
   margin: 10px 25%;
+  background-color: rgb(233, 117, 19);
+  border-color: rgb(233, 102, 19);
+}
+.remove-realm-btn
+{
+  background-color: #E13D22;
+  border-color: #E7381B;
 }
