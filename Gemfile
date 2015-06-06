@@ -34,6 +34,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
 # Paperclip
 gem "paperclip", "~> 4.2"
+# Rails config gem
+gem "rails_config"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
