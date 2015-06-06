@@ -1,7 +1,7 @@
 <%= form_for(@server, url: server_new_path, html: { multipart: true, method: :post}) do |f| %>
 <div class="profile-form">
   <% @server.errors.full_messages.each do |msg| %>
-  <%= msg %>
+  <p><%= msg %></p>
   <% end %>
   <fieldset>
     <legend class="reg-form"><span class="number">1</span>Server info</legend>

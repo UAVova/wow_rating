@@ -9,7 +9,6 @@ class ServersController < ApplicationController
   def create
   	@server = Server.new(server_params)
     @server.owner = current_user.id
-    #raise server_params.inspect
   	if @server.save
   		redirect_to root_path
   	else
