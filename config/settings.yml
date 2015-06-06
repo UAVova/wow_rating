@@ -1,0 +1,8 @@
+regexps:
+  standard_regexp: &standard_regexp  !ruby/regexp '/\A[a-zA-Z\d\s]*\z/' 
+  server_title_regexp: *standard_regexp # Regular expression for validating server title
+  server_description_regexp: *standard_regexp # Regular expression for validating server description
+  realm_name_regexp: *standard_regexp # Regular expression for validating realm name
+  realm_description_regexp:  *standard_regexp # Regular expression for validating realm description
+realms:
+  max_count: 1 # Realms max count
