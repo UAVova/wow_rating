@@ -1,0 +1,107 @@
+<div class="servers-container">
+  <div class="server">
+    <div class="server-badge">
+    	<div class="server-place">
+    		<%= @server.position %>
+    	</div>
+    	<div class="server-votes">
+    		41232
+    	</div>
+    </div>
+    <div class="server-header">
+    	<div class="server-title"><%= @server.title %></div>
+    	<div class="server-rate">
+    		<span class="server-star star-<%= @server.rating.round %>"></span>
+    		- <%= @server.rating.round %>
+    	</div>
+    	<span class="title-sep"></span>
+    </div>
+    <div class="server-sidebar">
+    	Official site<br>
+    	<a href="#" class="server-site"><%= @server.url %></a>
+    	<a href="#" class="server-vote-button">Vote</a>
+    	<%= image_tag @server.image.url(:medium), class: "server-img" %>
+    </div>
+    <div class="server-story">
+    	<span class="text" data="<%= @server.description %>">
+    		<%= truncate @server.description, length: 340 %>
+    	</span>
+    	<a href="#" class="show-more">Show full description</a>
+    </div>
+    <% if @server.realms.size > 0 %>
+    <div class="server-realms">
+    	<div class="section-header">Realms <span></span></div>
+    	<table>
+    	  <tbody>
+    	  	  <% @server.realms.each do |realm| %>
+    	  	  <tr>
+    	  	    <td class="realm-rate">
+    	  	      <span class="rate-badge"><%= "x#{realm.rates}" %></span>
+    	  	    </td>
+    	  	    <td class="realm-name">
+    	  	      <%= realm.name %>
+    	  	    </td>
+    	  	    <td class="realm-online">
+    	  	      <span class="online"></span> ~ <%= realm.online %>
+    	  	    </td>
+    	  	    <td class="realm-expansion">
+    	  	      <span class="wotlk"></span> <%= realm.wow_patch.title %>
+    	  	    </td>
+    	  	    <td class="realm-type">
+    	  	      <%= realm.realm_type.title %>
+    	  	    </td>
+    	  	  </tr>
+    	  	  <% end %>
+    	  </tbody>
+    	</table>
+    </div>
+    <% end %>
+    <div class="server-reviews">
+      <div class="section-header">Reviews <span></span></div>
+      <div class="review-buttons">
+      	<a href="#" class="reviews-btn">View all reviews</a>
+      	<a href="#" class="add-review-btn">Add review</a>
+      </div>
+      <div class="reviews">
+      	<div class="review">
+      		<div class="author-img">
+      			<img src="author.png" class="review-author-img">
+      		</div>
+      		<div class="review-content">
+      			<div class="review-details">
+      				<a href="#" class="review-author-link"> Volodymyr Kulyk </a> | <span class="review-posted-date">28.05.15</span> 
+      			</div>
+      			<div class="review-text">
+      			  <div class="review-text-content">
+      				<p class="review-subheader">
+      					Positive side
+      				</p>
+      				<p class="text">
+      				К сожалению, сервер 4.3.4 умер,потому что выгодней содержать Лича,на катьку забили большой и толстый,а когда людей стало и так невыносимо asfasdwef dsd
+      				</p>
+      				<p class="review-subheader">
+      					Negative side
+      				</p>
+      				<p class="text">
+      				К сожалению, сервер 4.3.4 умер,потому что выгодней содержать Лича,на катьку забили большой и толстый,а когда людей стало и так невыносимо asfasdwef dsd
+      				</p>
+      				<p class="review-subheader">
+      					Comment
+      				</p>
+      				<p class="text">
+      				К сожалению, сервер 4.3.4 умер,потому что выгодней содержать Лича,на катьку забили большой и толстый,а когда людей стало и так невыносимо asfasdwef dsd
+      				</p>
+      			  </div>
+      			  <div class="review-read-more">
+      			    <a href="#" class="review-full-btn">Read full review</a>
+      			  </div>
+      			</div>
+      		</div>
+      	</div>
+      </div>
+    </div>
+   
+    
+  </div>
+  
+</div>

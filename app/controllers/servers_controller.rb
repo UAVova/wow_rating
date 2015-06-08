@@ -6,6 +6,10 @@ class ServersController < ApplicationController
   	models_data
   end
 
+  def show
+    @server = Server.find(params[:id])
+  end
+
   def create
   	@server = Server.new(server_params)
     @server.owner = current_user.id

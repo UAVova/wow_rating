@@ -13,8 +13,7 @@ Rails.application.routes.draw do
     delete 'profile'      => 'devise/registrations#destroy'
   end
 
-  get  'server/new' => 'servers#new',         :as => :server_creation
-  post 'server/new' => 'servers#create'
+  resources :servers
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
