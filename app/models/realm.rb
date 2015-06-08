@@ -1,7 +1,7 @@
 class Realm < ActiveRecord::Base
-    has_one :realm_type, foreign_key: "id"
-    has_one :wow_patch,  foreign_key: "id"
-    has_one :server,     foreign_key: "id"
+    belongs_to :realm_type
+    belongs_to :wow_patch,    foreign_key: "version"
+    has_one :server,          foreign_key: "id"
     validates_date :creation_date, presence: true
     validates :server,        presence: true
     validates :name,          presence: true, format: { :with => Settings.regexps.realm_name_regexp }, 
