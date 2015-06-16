@@ -1,4 +1,4 @@
-<%= form_for(@server, url: server_new_path, html: { multipart: true, method: :post}) do |f| %>
+<%= form_for(@server, url: new_server_path, html: { multipart: true, method: :post}) do |f| %>
 <div class="profile-form">
   <% @server.errors.full_messages.each do |msg| %>
   <p><%= msg %></p>

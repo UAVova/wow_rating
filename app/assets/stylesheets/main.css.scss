@@ -196,6 +196,10 @@ button {
 	float: left;
 	margin-bottom: 20px;
 }
+.server.view
+{
+  height: 100%;
+}
 .server-image
 {
 	float: left;
@@ -758,17 +762,18 @@ span.title-sep
   float: left;
   color: #333333;
   margin: 10px 0px 0px 10px;
+  transition: height 0.5s ease 0s;
+  overflow: hidden;
 }
 .server-story .text
 {
   display: block;
   width: 100%;
-  height: 100px;
-  overflow: hidden;
   text-align: justify;
   font-size: 14px;
+  transition: height 0.5s ease 0s;
 }
-.server-story .show-more
+.show-more
 {
   width: 145px;
   height: 20px;

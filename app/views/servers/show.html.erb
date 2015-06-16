@@ -1,5 +1,5 @@
 <div class="servers-container">
-  <div class="server">
+  <div class="server view">
     <div class="server-badge">
     	<div class="server-place">
     		<%= @server.position %>
@@ -23,11 +23,12 @@
     	<%= image_tag @server.image.url(:medium), class: "server-img" %>
     </div>
     <div class="server-story">
-    	<span class="text" data="<%= @server.description %>">
+    	<span class="text" data-text="<%= @server.description %>">
     		<%= truncate @server.description, length: 340 %>
     	</span>
-    	<a href="#" class="show-more">Show full description</a>
     </div>
+    
+    	<a href="#" class="show-more">Show full description</a>
     <% if @server.realms.size > 0 %>
     <div class="server-realms">
     	<div class="section-header">Realms <span></span></div>
@@ -100,8 +101,6 @@
       	</div>
       </div>
     </div>
-   
-    
   </div>
   
 </div>
