@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { in: 6..30 }, on: :create
   validates_date :birthday, presence: true, :before => lambda { 14.years.ago }, 
                                             :after  => lambda { 60.years.ago }
-  has_attached_file :avatar, :styles => { :thumb => "128x128>" }, :default_url => ":style/missing.png",
+  has_attached_file :avatar, :styles => { :mini => "24x24>", :thumb => "128x128>" }, :default_url => ":style/missing.png",
                     :url  => '/assets/avatars/:id/:style/:basename.:extension',
                     :path => ':rails_root/public/assets/avatars/:id/:style/:basename.:extension'
   validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 1.megabytes
