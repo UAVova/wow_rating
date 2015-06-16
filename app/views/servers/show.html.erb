@@ -65,7 +65,7 @@
       	<a href="#" class="add-review-btn">Add review</a>
       </div>
       <div class="reviews">
-        <% @server.reviews.each do |review| %>
+        <% @server.reviews.take(2).each do |review| %>
       	<div class="review">
       		<div class="author-img">
               <%= image_tag review.user.avatar.url(:thumb), :class => "review-author-img" %>
