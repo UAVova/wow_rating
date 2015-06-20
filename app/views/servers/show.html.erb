@@ -1,3 +1,4 @@
+<%= flash.inspect.to_yaml %>
 <div class="servers-container">
   <div class="server view">
     <div class="server-badge">
@@ -62,8 +63,21 @@
       <div class="section-header">Reviews <span></span></div>
       <div class="review-buttons">
       	<a href="#" class="reviews-btn">View all reviews</a>
-      	<a href="#" class="add-review-btn">Add review</a>
+        <%= add_review_link @server, @review %>
       </div>
+      <% if flash[:errors].any? %>
+        <div class="errors-container">
+          <h3>Correct errors before submiting review:</h3>
+          <ol>
+          <% flash[:errors].each do |msg| %>
+            <%= content_tag :li, msg %>
+          <% end %>
+          </ol>
+        </div>
+        <%= form_for([@server, @review]) do |f| %>
+          <%= render "servers/review_fields", builder: f, obj: @server %>
+        <% end %>
+      <% end %>
       <div class="reviews">
         <% @server.reviews.take(2).each do |review| %>
       	<div class="review">

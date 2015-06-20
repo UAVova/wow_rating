@@ -1,0 +1,31 @@
+
+  <fieldset >
+    <div class="field">
+      <%= builder.label :positive %>
+      <%= builder.text_area :positive %>
+    </div>
+
+    <div class="field">
+      <%= builder.label :negative %>
+      <%= builder.text_area :negative %>
+    </div>
+
+    <div class="field">
+      <%= builder.label :comment %>
+      <%= builder.text_area :comment %>
+    </div>
+  
+  </fieldset>
+  <%= fields_for obj.votes.build do |f| %>
+  <fieldset >
+    <div class="field">
+      <%= f.label :rating %>
+      <%= f.radio_button :rating, 1, :class => "star required", :checked => true %>
+      <% 2.upto(5) do |n| %>
+        <%= f.radio_button :rating, n, :class => "star" %>
+      <% end %>
+    </div>
+  
+  </fieldset>
+  <% end %>
+    <%= builder.submit :id => "submit-review" %>

@@ -4,5 +4,6 @@ regexps:
   server_description_regexp: *standard_regexp # Regular expression for validating server description
   realm_name_regexp: *standard_regexp # Regular expression for validating realm name
   realm_description_regexp:  *standard_regexp # Regular expression for validating realm description
+  review_content_regexp: *standard_regexp
 realms:
   max_count: 1 # Realms max count

@@ -27,3 +27,15 @@ jQuery ->
     $('.server-story').height(size)
     $('.show-more').css('background-image', img)
     $('.show-more').html(buttonText)
+
+  $('.add-review-btn').on 'click', (event) ->
+    if $('.new_review').length > 0
+      if $('.new_review').is(':visible')
+        $('.new_review').slideUp()
+      else
+        $('.new_review').slideDown()
+    else
+      $('.review-buttons').after($('.add-review-btn').data('form'))
+      $('.star').rating()
+      $('.new_review').hide().slideDown()
+    event.preventDefault()

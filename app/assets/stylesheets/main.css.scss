@@ -862,7 +862,7 @@ span.online
   margin: 8px 5px;
   background-image: image-url("player.png");
 }
-.reviews-btn, .add-review-btn
+.reviews-btn, .add-review-btn, #submit-review
 {
   float: left;
   width: 260px;
@@ -940,4 +940,39 @@ span.online
 {
   overflow: hidden;
   font-size: 13px;
+}
+.new_review
+{
+  float: left;
+  width: 100%;
+  background-color: #E8EEEF;
+  padding: 30px;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+.new_review textarea
+{
+  background: white;
+}
+.review-buttons
+{
+  float: left;
+  width: 540px;
+}
+#submit-review
+{
+  border: medium none;
+  width: 100%;
+  background-color: #2EBD85;
+  border-bottom: 2px solid #00B16A;
+}
+.errors-container
+{
+  float: left;
+  padding: 10px 30px;
+  background-color: #F66;
+  width: 100%;
+  border-radius: 3px;
+  color: #FFF;
+  margin: 5px 0px;
 }

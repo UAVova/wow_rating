@@ -6,7 +6,9 @@ class Server < ActiveRecord::Base
   validates_with AttachmentContentTypeValidator, :attributes => :image,  :content_type => ["image/jpeg", "image/png"]
   has_many :realms,  foreign_key: "server_id", :inverse_of => :server
   has_many :reviews
-  accepts_nested_attributes_for :realms, :allow_destroy => true
+  has_many :votes
+  accepts_nested_attributes_for :realms,  :allow_destroy => true
+  accepts_nested_attributes_for :reviews, :allow_destroy => true
   validates :title, presence: true, format: { :with => Settings.regexps.server_title_regexp }, 
                                     length: { in: 3..20 }
   validates :url,   presence: true, format: { :with => URI.regexp(['http', 'https']) }  
