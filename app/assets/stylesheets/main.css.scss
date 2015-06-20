@@ -199,6 +199,7 @@ button {
 .server.view
 {
   height: 100%;
+  padding-bottom: 10px;
 }
 .server-image
 {
@@ -696,7 +697,7 @@ span.title-sep
 .server-rate
 {
   float: left;
-  margin: 20px 0px 0px 15px;
+  margin: 25px 0px 0px 15px;
   width: 100px;
   text-align: left;
   line-height: 27px;
@@ -752,6 +753,7 @@ span.title-sep
 {
   width: 180px;
   height: 100px;
+  float: left;
 }
 .server-story
 {
@@ -975,4 +977,16 @@ span.online
   border-radius: 3px;
   color: #FFF;
   margin: 5px 0px;
+}
+.server-reviews .no-reviews
+{
+  float: left;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: rgb(255, 104, 72);
+  color: white;
+  margin: 10px 0px;
+  text-align: center;
+  font-size: 14px;
 }
