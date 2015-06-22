@@ -7,7 +7,7 @@ jQuery ->
   $('form').on 'click', '.remove-realm-btn', (event) ->
     $(this).closest('fieldset').remove()
     event.preventDefault()
-  $('.show-more').on 'click', (event) ->
+  $(document).on 'click', '.show-more', 'click', (event) ->
     if $('.server-story').height() < 200
       $('.server-story .text').data('text-old', $('.server-story .text').html())
       $('.server-story .text').html($('.server-story .text').data('text'))
@@ -28,7 +28,7 @@ jQuery ->
     $('.show-more').css('background-image', img)
     $('.show-more').html(buttonText)
 
-  $('.add-review-btn').on 'click', (event) ->
+  $(document).on 'click', '.add-review-btn', (event) ->
     if $('.new_review').length > 0
       if $('.new_review').is(':visible')
         $('.new_review').slideUp()

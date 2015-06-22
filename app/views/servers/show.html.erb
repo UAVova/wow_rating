@@ -12,7 +12,7 @@
     	<div class="server-title"><%= @server.title %></div>
     	<div class="server-rate">
     		<span class="server-star star-<%= @server.rating.round %>"></span>
-    		- <%= @server.rating.round %>
+    		- <%= @server.votes.average("rating").round %>
     	</div>
     	<span class="title-sep"></span>
     </div>
@@ -27,8 +27,9 @@
     		<%= truncate @server.description, length: 340 %>
     	</span>
     </div>
-
+    <% if @server.description.length > 340 %>
     	<a href="#" class="show-more">Show full description</a>
+    <% end %>
     <% if @server.realms.size > 0 %>
     <div class="server-realms">
     	<div class="section-header">Realms <span></span></div>
@@ -64,7 +65,7 @@
         <%= add_review_link @server, @review %>
       </div>
       <% if @server.reviews.count > 0 %>
-        <% if flash[:errors].any? %>
+        <% if flash[:errors] && flash[:errors].any? %>
           <div class="errors-container">
             <h3>Correct errors before submiting review:</h3>
             <ol>
@@ -78,7 +79,7 @@
           <% end %>
         <% end %>
         <div class="reviews">
-          <% @server.reviews.take(2).each do |review| %>
+          <% @server.reviews.order("id DESC").take(2).each do |review| %>
         	<div class="review">
         		<div class="author-img">
                 <%= image_tag review.user.avatar.url(:thumb), :class => "review-author-img" %>

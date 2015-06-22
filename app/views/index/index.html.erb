@@ -20,7 +20,7 @@
           <span class="vote-count">
             <%= server.votes.count() %>
           </span>
-          <a href="#" class="rating-img star-<%= server.rating.round %>">
+          <a href="#" class="rating-img star-<%= server.votes.average("rating").round if server.votes.count > 0 %>">
           </a>
         </div>
       </div>
