@@ -79,7 +79,7 @@ button {
 	height: 340px;
 	background: white;
 	padding-top: 10px;
-	margin-top: 95px;
+	margin-top: 65px;
 }
 .login-form
 {
@@ -152,17 +152,26 @@ button {
 }
 .notify-container
 {
-	height: 70px;
-	margin-bottom: 5px;
+  margin: 10px 0px;
+  height: 45px;
 }
-.reg-notify
+.reg-notify, .notice-notify, .alert-notify
 {
 	width: 770px;
-	height: 50px;
+	height: 40px;
 	background-color: #82D3FA;
 	text-align: center;
-	margin: 20px 0px;
-	line-height: 50px;
+	line-height: 40px;
+}
+.notice-notify
+{
+  background-color: #51B738;
+  color: white;
+}
+.alert-notify
+{
+  background-color: #EC4242;
+  color: white;
 }
 .red-btn
 {
@@ -362,7 +371,7 @@ img.first-place
   margin-bottom: 20px;
   width: 770px;
 }
-form.reg-form, div.profile-form {
+form.reg-form, form.new_server, form.profile-form {
   background-color: white;
   float: left;
   margin-bottom: 20px;
@@ -737,7 +746,7 @@ span.title-sep
   font-size: 12px;
   float: left;
 }
-.server-sidebar a.server-vote-button
+.server-sidebar .server-vote
 {
   width: 180px;
   height: 30px;
@@ -997,4 +1006,108 @@ p.text
 .author-img>img
 {
   width: 48px;
+}
+.wrapper {
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0);
+}
+
+.wrapper .tooltip {
+  background: white;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 15px 15px 10px 15px;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid white 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 50%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+  
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+.server-vote-button
+{
+   width: 100%; 
+    height: 30px;
+    color: #FEFEFE; 
+    background-color: #51B738;
+    float: left;
+    line-height: 30px; 
+    text-align: center; 
+    display: block;
+    border: medium none;
+    margin: 5px 0px; 
+    font-size: 14px;
+}
+.tooltip>form>label, .tooltip>form>p, .tooltip>p
+{
+    color:black;
+    font-size:12px;
+    line-height: 14px;
+}
+.tooltip>form>label
+{
+  margin: 5px 0px;
+}
+.tooltip>form>input[type="text"]
+{
+  padding: 5px;
+  margin: 0px;
+  font-size: 14px;
+}
+#error_explanation
+{
+  padding: 30px;
+  background-color: #EC4242;
+  border-radius: 3px;
+  color: white;
+  margin-bottom: 20px;
 }

@@ -1,7 +1,13 @@
 <%= form_for(@server, url: servers_path, html: { multipart: true, method: :post}) do |f| %>
 <div class="profile-form">
-  <% @server.errors.full_messages.each do |msg| %>
-  <p><%= msg %></p>
+  <% if @server.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @server.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
   <fieldset>
     <legend class="reg-form"><span class="number">1</span>Server info</legend>
@@ -37,7 +43,7 @@
 <div class="profile-form">
  <fieldset>
 <div class="actions">
-    <input name="commit" class="submit-btn" value="Update" type="submit">
+    <input name="commit" class="submit-btn" value="Submit" type="submit">
 </div>
   </fieldset>
 </div>

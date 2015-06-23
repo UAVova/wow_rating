@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   end
 
   patch 'products/:id' => 'servers#add_review', :as => :add_review
-  
+  get   'servers'      => 'index#index'
+
   resources :servers do
     resources :reviews
+    resources :votes
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

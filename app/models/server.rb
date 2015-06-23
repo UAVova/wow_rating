@@ -2,11 +2,12 @@ class Server < ActiveRecord::Base
 	has_attached_file :image, :styles => { :medium => "160x130>" }, :default_url => "missing_server.png",
                     :url  => '/assets/servers/:id/:style/:basename.:extension',
                     :path => ':rails_root/public/assets/servers/:id/:style/:basename.:extension'
-  validates_with AttachmentSizeValidator,        :attributes => :image, :less_than => 1.megabytes
+  validates_with AttachmentSizeValidator,        :attributes => :image, :less_than => 2.megabytes
   validates_with AttachmentContentTypeValidator, :attributes => :image,  :content_type => ["image/jpeg", "image/png"]
-  has_many :realms,  foreign_key: "server_id", :inverse_of => :server
-  has_many :reviews
-  has_many :votes
+  has_many   :realms,  foreign_key: "server_id", :inverse_of => :server
+  has_many   :reviews
+  has_many   :votes
+  belongs_to :user,    foreign_key: "owner"
   accepts_nested_attributes_for :realms,  :allow_destroy => true
   accepts_nested_attributes_for :reviews, :allow_destroy => true
   validates :title, presence: true, format: { :with => Settings.regexps.server_title_regexp }, 

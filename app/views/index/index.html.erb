@@ -20,7 +20,7 @@
           <span class="vote-count">
             <%= server.votes.count() %>
           </span>
-          <a href="#" class="rating-img star-<%= server.votes.average("rating").round if server.votes.count > 0 %>">
+          <a href="#" class="rating-img star-<%= server.votes.count > 0 ? server.votes.average("rating").round : 0 %>">
           </a>
         </div>
       </div>
@@ -30,9 +30,9 @@
         <%= truncate server.description, length: 200 %>
       </div>
       <div class="server-rates">
-        <% server.rates.split(",").map{|item| 'x'+item}.take(8).each do |rate| %>
+        <% server.realms.take(8).each do |realm| %>
         <span class="rate-badge">
-          <%= rate %>
+          <%= realm.rates %>
         </span>
         <% end %>
       </div>

@@ -3,14 +3,18 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :votes
+  has_many :votes do
+    def today
+      where(:created_at => (Time.now - 24.hours)..Time.zone.now)
+    end
+  end
   has_many :servers
   has_many :reviews
   validates_acceptance_of :rules, :allow_nil => false, :on => :create
   validates :username, uniqueness: true, presence: true, 
                        format: { with: /\A[a-zA-Z0-9]+\Z/ }, 
                        length: { in: 6..16 }
-  validates :email, presence: true, length: { in: 6..30 }, on: :create
+  validates :email, length: { in: 6..30 }, on: :create
   validates_date :birthday, presence: true, :before => lambda { 14.years.ago }, 
                                             :after  => lambda { 60.years.ago }
   has_attached_file :avatar, :styles => { :mini => "24x24>", :thumb => "128x128>" }, :default_url => ":style/missing.png",
