@@ -3,7 +3,7 @@
     <% if user_signed_in? %>
     <div class="profile">
       <div class="user-avatar">
-        <img src="#">
+        <%= image_tag current_user.avatar.url(:thumb) %>
         <div class="user-notify">
           <div class="dashboard-notify unreaded"><span class="dashboard-icon"></span></div>
           <a class="dashboard-notify unreaded appear-notify" style=""><span class="dashboard-icon"></span></a>
@@ -15,9 +15,8 @@
       </div>
       <div class="user-name"><%= current_user.username %></div>
       <div class="user-nav">
-        <a href="#" class="user-nav-button">
-          Settings
-        </a>
+        <%= link_to "Profile Settings", edit_user_profile_path, class: "user-nav-button" %>
+        <%= link_to "Add server", new_server_path, class: "user-nav-button" %>
         <%= link_to "Log out", destroy_user_session_path, class: "user-nav-button" %>
       </div>
     </div>

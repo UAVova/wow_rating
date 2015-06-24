@@ -1,0 +1,36 @@
+  <fieldset id="realm_form">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true %>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :rates %> <i>(from 1 to 9999 without "x")</i><br>
+      <%= f.text_field :rates %>
+    </div>
+
+    <div class="field">
+      <%= f.label :realm_type_id, "Realm type" %> 
+      <%= f.select :realm_type_id, options_from_collection_for_select(@server_types, 'id', 'title')%>
+    </div>
+
+    <div class="field">
+      <%= f.label :version, "Realm patch" %> 
+      <%= f.select :version, options_from_collection_for_select(@patches, 'id', 'title')%>
+    </div>
+
+    <div class="field">
+      <%= f.label :creation_date, "Realm creation date" %>
+      <%= f.date_select :creation_date %>
+    </div>
+
+    <div class="field">
+      <%= f.label :online, "Online players" %> <i>(stable online player count during the day)</i><br>
+      <%= f.text_field :online %>
+    </div>
+
+    <%= link_to "Remove realm", "#", class: "remove-realm-btn" %>
+  </fieldset>

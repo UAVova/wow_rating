@@ -1,0 +1,46 @@
+<div class="servers-container">
+  <% @servers.each_with_index do |server, index| %>
+  <% if (0..1).include?(index) %>
+    <% 
+       award = "award-#{index+1}" 
+       index = ""
+    %>
+  <% else %>
+    <% award = "" %>
+    <% index += 1 %>
+  <% end %>
+  <div class="server">
+    <div class="server-image">
+      <%= image_tag server.image.url(:medium) %>
+    </div>
+    <div class="server-details">
+      <div class="header-details">
+        <%= link_to server.title, server, class: "title" %>
+        <div class="server-rating">
+          <span class="vote-count">
+            <%= server.votes.count() %>
+          </span>
+          <a href="#" class="rating-img star-<%= server.votes.count > 0 ? server.votes.average("rating").round : 0 %>">
+          </a>
+        </div>
+      </div>
+      <span class="sep">
+      </span>
+      <div class="server-description">
+        <%= truncate server.description, length: 200 %>
+      </div>
+      <div class="server-rates">
+        <% server.realms.take(8).each do |realm| %>
+        <span class="rate-badge">
+          <%= realm.rates %>
+        </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="server-award <%= award %>">
+      <%= index %>
+    </div>
+  </div>
+  <% end %>
+  
+</div>

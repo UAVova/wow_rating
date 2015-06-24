@@ -5,19 +5,27 @@ Rails.application.routes.draw do
   
   # Override standard devise routes
   as :user do
-    get    'registration' => 'registrations#new',    :as => :user_registration
-    post   'registration' => 'registrations#create', :as => :new_user_registration
-    get    'profile'      => 'devise/registrations#edit'
+    get    'registration' => 'registrations#new',         :as => :user_registration
+    post   'registration' => 'registrations#create',      :as => :new_user_registration
+    get    'profile'      => 'devise/registrations#edit', :as => :edit_user_profile
     patch  'profile'      => 'devise/registrations#update'
     put    'profile'      => 'devise/registrations#update'
     delete 'profile'      => 'devise/registrations#destroy'
   end
 
+  patch 'products/:id' => 'servers#add_review', :as => :add_review
+  get   'servers'      => 'index#index'
+
+  resources :servers do
+    resources :reviews
+    resources :votes
+  end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'servers#index'
+  root 'index#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

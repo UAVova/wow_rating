@@ -79,7 +79,7 @@ button {
 	height: 340px;
 	background: white;
 	padding-top: 10px;
-	margin-top: 95px;
+	margin-top: 65px;
 }
 .login-form
 {
@@ -152,17 +152,26 @@ button {
 }
 .notify-container
 {
-	height: 70px;
-	margin-bottom: 5px;
+  margin: 10px 0px;
+  height: 45px;
 }
-.reg-notify
+.reg-notify, .notice-notify, .alert-notify
 {
 	width: 770px;
-	height: 50px;
+	height: 40px;
 	background-color: #82D3FA;
 	text-align: center;
-	margin: 20px 0px;
-	line-height: 50px;
+	line-height: 40px;
+}
+.notice-notify
+{
+  background-color: #51B738;
+  color: white;
+}
+.alert-notify
+{
+  background-color: #EC4242;
+  color: white;
 }
 .red-btn
 {
@@ -196,10 +205,17 @@ button {
 	float: left;
 	margin-bottom: 20px;
 }
+.server.view
+{
+  height: 100%;
+  padding-bottom: 10px;
+}
 .server-image
 {
 	float: left;
 	margin: 10px;
+  width: 160px;
+  overflow: hidden;
 }
 .header-details
 {
@@ -227,6 +243,30 @@ button {
   display: block;
   margin-top: 18px;
   float: right;
+}
+.star-0
+{
+  background-position: 0px -129px;
+}
+.star-1
+{
+  background-position: 0px -103px;
+}
+.star-2
+{
+  background-position: 0px -77px;
+}
+.star-3
+{
+  background-position: 0px -51px;
+}
+.star-4
+{
+  background-position: 0px -25px;
+}
+.star-5
+{
+  background-position: 0px 0px;
 }
 .vote-count
 {
@@ -299,8 +339,13 @@ img.first-place
   background-repeat: no-repeat;
   background-position: 14px 0px;
 }
-.server-award.first {
+.server-award.award-1 {
   background-image: url("award.png");
+  background-repeat: no-repeat;
+  background-position: 14px 0px;
+}
+.server-award.award-2 {
+  background-image: url("award-2.png");
   background-repeat: no-repeat;
   background-position: 14px 0px;
 }
@@ -326,11 +371,13 @@ img.first-place
   margin-bottom: 20px;
   width: 770px;
 }
-form.reg-form, form.profile-form {
+form.reg-form, form.new_server, form.profile-form {
+  background-color: white;
+  float: left;
+  margin-bottom: 20px;
+  width: 770px;
   max-width: 770px;
-  margin: 10px auto;
   padding: 10px 20px;
-  border-radius: 8px;
 }
  
 h1 {
@@ -363,6 +410,12 @@ select {
   box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
   margin-bottom: 30px;
 }
+
+textarea
+{
+  max-width: 730px;
+  height: 200px;
+}
  
 input[type="radio"],
 input[type="checkbox"] {
@@ -375,7 +428,7 @@ select {
   border-radius: 2px;
 }
  
-button.reg-form, input[type="submit"].reg-form, button.profile-form, input[type="submit"].profile-form{
+button.reg-form, input[type="submit"].reg-form, button.submit-btn, input[type="submit"].submit-btn{
   padding: 19px 39px 18px 39px;
   color: #FFF;
   background-color: #4bc970;
@@ -389,9 +442,13 @@ button.reg-form, input[type="submit"].reg-form, button.profile-form, input[type=
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
 }
- 
+input[type="submit"].submit-btn
+{
+  margin-bottom: 50px;
+}
+
 fieldset {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   border: none;
 }
  
@@ -550,4 +607,507 @@ label.light {
 .unreaded
 {
 	background-color: rgb(232, 62, 62);
+}
+label.avatarUpload input[type="file"] {
+    position: fixed;
+    top: -1000px;
+}
+.avatarUpload, .add-realm-btn, .remove-realm-btn {
+  padding: 19px 39px 18px;
+  color: #FFF;
+  background-color: #4F9CBC;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  border-style: solid;
+  -moz-border-top-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  border-image: none;
+  border-width: 1px 1px 3px;
+  box-shadow: 0px -1px 0px rgba(255, 255, 255, 0.1) inset;
+  border-color: #4F92BC;
+  width: 500px;
+  margin-bottom: 10px;
+  margin-left: 120px;
+}
+legend.reg-form
+{
+  font-size: 24px;
+  margin: 15px 0px;
+}
+.add-realm-btn, .remove-realm-btn
+{
+  float: left;
+  width: 50%;
+  margin: 10px 25%;
+  background-color: rgb(233, 117, 19);
+  border-color: rgb(233, 102, 19);
+}
+.remove-realm-btn
+{
+  background-color: #E13D22;
+  border-color: #E7381B;
+}
+.server-badge
+{
+  width: 70px;
+  height: 70px;
+  float: left;
+  background-color: #00b16a;
+}
+.server-badge .server-place
+{
+  width: 70px;
+  height: 50px;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+}
+.server-badge .server-votes
+{
+  width: 70px;
+  height: 20px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+  color: white;
+  background-color: #474747;
+}
+.server-header
+{
+  float: left;
+  height: 70px;
+  width: 480px;
+}
+.server-header .server-title {
+  float: left;
+  font-size: 24px;
+  color: #414a51;
+  text-align: left;
+  margin: 22px 0px 0px 10px;
+}
+span.title-sep
+{
+  width:460px;
+  height: 1px;
+  float: left;
+  background-color: #e8eeef;
+  margin: 10px;
+}
+.server-star
+{
+  width: 25px;
+  height: 25px;
+}
+.server-rate
+{
+  float: left;
+  margin: 25px 0px 0px 15px;
+  width: 100px;
+  text-align: left;
+  line-height: 27px;
+  font-size: 20px;
+}
+.server-rate .star-0, .server-rate .star-1, .server-rate .star-2, .server-rate .star-3, .server-rate .star-4, .server-rate .star-5
+{
+  background-image: url("stars.png");
+  background-position: -50px 0px;
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+.server-rate .star-2, .server-rate .star-3, .server-rate .star-4
+{
+  background-position: -25px 0px;
+}
+.server-rate .star-5
+{
+  background-position: 0px 0px;
+}
+.server-sidebar
+{
+  width: 200px;
+  height: 215px;
+  background-color: #e8eeef;
+  padding: 15px 10px;
+  font-size: 14px;
+  color: #333333;
+  float: right;
+  margin-right: 15px;
+  margin-top: 10px;
+}
+.server-sidebar a.server-site
+{
+  color: #58a3dd;
+  font-size: 12px;
+  float: left;
+}
+.server-sidebar .server-vote
+{
+  width: 180px;
+  height: 30px;
+  color: white;
+  background-color: #ef512c;
+  float: left;
+  line-height: 30px;
+  text-align: center;
+  display: block;
+  margin: 10px 0px;
+}
+.server-sidebar .server-img
+{
+  width: 180px;
+  height: 100px;
+  float: left;
+}
+.server-story
+{
+  width: 540px;
+  height: 145px;
+  background-color: #e8eeef;
+  padding: 10px;
+  float: left;
+  color: #333333;
+  margin: 10px 0px 0px 10px;
+  transition: height 0.5s ease 0s;
+  overflow: hidden;
+}
+.server-story .text
+{
+  display: block;
+  width: 100%;
+  text-align: justify;
+  font-size: 14px;
+  transition: height 0.5s ease 0s;
+}
+.show-more
+{
+  width: 145px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  color: #696969;
+  background-image: image-url("show_more.png");
+  float: left;
+  margin: 5px 180px;
+  font-size: 12px;
+}
+.server-realms, .server-reviews
+{
+  width: 540px;
+  color: #333333;
+  margin: 10px 0px 0px 10px;
+}
+.section-header
+{
+  width: 540px;
+  font-size: 18px;
+  text-align: center;
+  color: #333333;
+  float: left;
+  margin-top: 10px;
+}
+.section-header span
+{
+  height: 1px;
+  background-color: #e8eeef;
+  margin-bottom: 10px;
+  width: 100%;
+  display: block;
+}
+.server-realms table tr td 
+{
+  height: 30px;
+  background-color: #e8eeef;
+  line-height: 30px;
+  text-align: left;
+
+}
+.server-realms table
+{
+  color: #515151;
+  border-spacing: 2px;
+  font-size: 14px;
+  max-width: 540px;
+  width: 100%;
+  float: left;
+}
+.server-realms table tr td.realm-online, .server-realms table tr td.realm-expansion
+{
+  width: 80px;
+}
+.server-realms table tr td.realm-rate
+{
+  width: 60px;
+  padding: 0px 10px;
+}
+.server-realms table tr td.realm-name
+{
+  width: 250px;
+  padding-left: 10px;
+}
+.server-realms table tr td.realm-type
+{
+  width: 50px;
+  text-align: center;
+}
+span.wotlk
+{
+  width: 21px;
+  height: 21px;
+  display: block;
+  float: left;
+  margin: 4px 5px;
+  background-image: image-url("wotlk.png");
+}
+span.online
+{
+  width: 12px;
+  height: 13px;
+  display: block;
+  float: left;
+  margin: 8px 5px;
+  background-image: image-url("player.png");
+}
+.reviews-btn, .add-review-btn, #submit-review
+{
+  float: left;
+  width: 260px;
+  height: 35px;
+  background-color: #33add6;
+  line-height: 35px;
+  color: white;
+  font-size: 14px;
+  border-bottom: 2px solid #0099cc;
+  text-align: center;
+}
+.add-review-btn
+{
+  float: right;
+  background-color: #2ebd85;
+  border-bottom: 2px solid #00b16a;
+}
+.author-img
+{
+  float:left;
+  height: 48px;
+  width: 48px;
+  overflow: hidden;
+
+}
+.review
+{
+  float: left;
+  margin: 20px 0px;
+}
+.review-content
+{
+  margin-left: 5px;
+  float: left;
+}
+.review-details
+{
+  width: 480px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  color: #515151;
+}
+.review-details a
+{
+  color: #0099cc;
+}
+.review-posted-date
+{
+  font-size: 10px;
+}
+.review-text
+{
+  width: 480px;
+  background-color: #e8eeef;
+  padding: 10px;
+  font-size: 14px;
+}
+.review-subheader
+{
+  font-weight: bold;
+}
+.review-full-btn
+{
+  width: 450px;
+  height: 25px;
+  margin: 10px 5px 0px 5px;
+  background-color: #cad0d1;
+  line-height: 25px;
+  text-align: center;
+  color: #333333;
+  display: block;
+}
+.review-text-content 
+{
+  overflow: hidden;
+  font-size: 13px;
+}
+.new_review
+{
+  float: left;
+  width: 100%;
+  background-color: #E8EEEF;
+  padding: 30px;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+.new_review textarea
+{
+  background: white;
+}
+.review-buttons
+{
+  float: left;
+  width: 540px;
+}
+#submit-review
+{
+  border: medium none;
+  width: 100%;
+  background-color: #2EBD85;
+  border-bottom: 2px solid #00B16A;
+}
+.errors-container
+{
+  float: left;
+  padding: 10px 30px;
+  background-color: #F66;
+  width: 100%;
+  border-radius: 3px;
+  color: #FFF;
+  margin: 5px 0px;
+}
+.server-reviews .no-reviews
+{
+  float: left;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background-color: rgb(255, 104, 72);
+  color: white;
+  margin: 10px 0px;
+  text-align: center;
+  font-size: 14px;
+}
+p.text
+{
+  word-wrap: break-word;
+}
+.author-img>img
+{
+  width: 48px;
+}
+.wrapper {
+  position: relative;
+  text-align: center;
+  width: 200px;
+  -webkit-transform: translateZ(0);
+}
+
+.wrapper .tooltip {
+  background: white;
+  bottom: 100%;
+  color: #fff;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 15px 15px 10px 15px;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  -webkit-transform: translateY(10px);
+     -moz-transform: translateY(10px);
+      -ms-transform: translateY(10px);
+       -o-transform: translateY(10px);
+          transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+     -moz-transition: all .25s ease-out;
+      -ms-transition: all .25s ease-out;
+       -o-transition: all .25s ease-out;
+          transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+       -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+          box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+}
+
+.wrapper .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}  
+.wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid white 10px;
+  bottom: -10px;
+  content: " ";
+  height: 0;
+  left: 50%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+}
+  
+.wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+     -moz-transform: translateY(0px);
+      -ms-transform: translateY(0px);
+       -o-transform: translateY(0px);
+          transform: translateY(0px);
+}
+.server-vote-button
+{
+   width: 100%; 
+    height: 30px;
+    color: #FEFEFE; 
+    background-color: #51B738;
+    float: left;
+    line-height: 30px; 
+    text-align: center; 
+    display: block;
+    border: medium none;
+    margin: 5px 0px; 
+    font-size: 14px;
+}
+.tooltip>form>label, .tooltip>form>p, .tooltip>p
+{
+    color:black;
+    font-size:12px;
+    line-height: 14px;
+}
+.tooltip>form>label
+{
+  margin: 5px 0px;
+}
+.tooltip>form>input[type="text"]
+{
+  padding: 5px;
+  margin: 0px;
+  font-size: 14px;
+}
+#error_explanation
+{
+  padding: 30px;
+  background-color: #EC4242;
+  border-radius: 3px;
+  color: white;
+  margin-bottom: 20px;
 }

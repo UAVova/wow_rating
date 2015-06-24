@@ -1,0 +1,50 @@
+<%= form_for(@server, url: servers_path, html: { multipart: true, method: :post}) do |f| %>
+<div class="profile-form">
+  <% if @server.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @server.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <legend class="reg-form"><span class="number">1</span>Server info</legend>
+    <%= f.label :title %>
+    <%= f.text_field :title, autofocus: true %>
+
+    <div class="field">
+      <%= f.label :description %>
+      <i>(First 200 symbols will be displayed on the main page)</i>
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :url %> <i>(site main page adress including http://)</i><br>
+      <%= f.url_field :url %>
+    </div>
+
+    <div class="field">
+      <%= f.label :image, "Server banner (160x130)" %>
+      <label class="avatarUpload">
+        <%= f.file_field :image %>
+        <span>Choose image</span>
+      </label>
+    </div>
+  </fieldset>
+</div>
+<div class="profile-form">
+ <fieldset>
+    <legend class="reg-form"><span class="number">2</span>Add realms</legend>
+      <%= add_fields_link "+ Add realms", f, :realms, "realms_fields", "add-realm-btn" %>
+  </fieldset>
+</div>
+<div class="profile-form">
+ <fieldset>
+<div class="actions">
+    <input name="commit" class="submit-btn" value="Submit" type="submit">
+</div>
+  </fieldset>
+</div>
+<% end %>

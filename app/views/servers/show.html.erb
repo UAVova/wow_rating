@@ -1,0 +1,149 @@
+<div class="servers-container">
+  <div class="server view">
+    <div class="server-badge">
+    	<div class="server-place">
+    		<%= @server.position %>
+    	</div>
+    	<div class="server-votes">
+    		<%= @server.votes.count %>
+    	</div>
+    </div>
+    <div class="server-header">
+    	<div class="server-title"><%= @server.title %></div>
+    	<div class="server-rate">
+    		<span class="server-star star-<%= @server.votes.count > 0 ? @server.votes.average("rating").round : 0 %>"></span>
+    		- <%= @server.votes.count > 0 ? @server.votes.average("rating").round : 0 %>
+    	</div>
+    	<span class="title-sep"></span>
+    </div>
+    <div class="server-sidebar">
+    	Official site<br>
+    	<a href="#" class="server-site"><%= @server.url %></a>
+      <div class="wrapper server-vote">
+        Vote
+        <div class="tooltip">
+          <% if current_user && current_user.votes.where(created_at: (Time.now - 24.hours)..Time.now).exists?  %>
+            <p> You allowed to vote once in 24 hours</p>
+          <% elsif user_signed_in? %>
+            <%= form_for ([@server, @server.votes.new])  do |f|%>
+              <%= f.label :username, "Server account:" %>
+              <%= f.text_field :username, :autocomplete => :off, :id => "username" %>
+              <%= f.label :rating %>
+              <%= f.radio_button :rating, 1, :class => "star required", :checked => true %>
+              <% 2.upto(5) do |n| %>
+                <%= f.radio_button :rating, n, :class => "star" %>
+              <% end %>
+              <%= f.submit "Vote", :class => "server-vote-button" %>
+            <% end %>
+          <% else %>
+            <label>You must login to vote</label>
+            <%= link_to "Login", new_user_session_path %>
+            <p>or</p>
+            <%= link_to "Register", user_registration_path %>
+          <% end %>
+        </div>
+      </div>
+    	<%= image_tag @server.image.url(:medium), class: "server-img" %>
+    </div>
+    <div class="server-story">
+    	<span class="text" data-text="<%= @server.description %>">
+    		<%= truncate @server.description, length: 340 %>
+    	</span>
+    </div>
+    <% if @server.description.length > 340 %>
+    	<a href="#" class="show-more">Show full description</a>
+    <% end %>
+    <% if @server.realms.size > 0 %>
+    <div class="server-realms">
+    	<div class="section-header">Realms <span></span></div>
+    	<table>
+    	  <tbody>
+    	  	  <% @server.realms.each do |realm| %>
+    	  	  <tr>
+    	  	    <td class="realm-rate">
+    	  	      <span class="rate-badge"><%= "x#{realm.rates}" %></span>
+    	  	    </td>
+    	  	    <td class="realm-name">
+    	  	      <%= realm.name %>
+    	  	    </td>
+    	  	    <td class="realm-online">
+    	  	      <span class="online"></span> ~ <%= realm.online %>
+    	  	    </td>
+    	  	    <td class="realm-expansion">
+    	  	      <span class="wotlk"></span> <%= realm.wow_patch.title %>
+    	  	    </td>
+    	  	    <td class="realm-type">
+    	  	      <%= realm.realm_type.title %>
+    	  	    </td>
+    	  	  </tr>
+    	  	  <% end %>
+    	  </tbody>
+    	</table>
+    </div>
+    <% end %>
+    <div class="server-reviews">
+      <div class="section-header">Reviews <span></span></div>
+      <div class="review-buttons">
+      	<a href="#" class="reviews-btn">View all reviews</a>
+        <%= add_review_link @server, @review %>
+      </div>
+      <% if @server.reviews.count > 0 %>
+        <% if flash[:errors] && flash[:errors].any? %>
+          <div class="errors-container">
+            <h3>Correct errors before submiting review:</h3>
+            <ol>
+            <% flash[:errors].each do |msg| %>
+              <%= content_tag :li, msg %>
+            <% end %>
+            </ol>
+          </div>
+          <%= form_for([@server, @review]) do |f| %>
+            <%= render "servers/review_fields", builder: f, obj: @server %>
+          <% end %>
+        <% end %>
+        <div class="reviews">
+          <% @server.reviews.order("id DESC").take(2).each do |review| %>
+        	<div class="review">
+        		<div class="author-img">
+                <%= image_tag review.user.avatar.url(:thumb), :class => "review-author-img" %>
+        		</div>
+        		<div class="review-content">
+        			<div class="review-details">
+        				<a href="#" class="review-author-link"> <%= review.user.username %> </a> | <span class="review-posted-date"><%= review.updated_at.to_date.to_s %></span> 
+        			</div>
+        			<div class="review-text">
+        			  <div class="review-text-content">
+        				<p class="review-subheader">
+        					Positive side
+        				</p>
+        				<p class="text">
+        				<%= truncate review.positive, :length => 300 %>
+        				</p>
+        				<p class="review-subheader">
+        					Negative side
+        				</p>
+        				<p class="text">
+        				<%= truncate review.negative, :length => 300 %>
+        				</p>
+        				<p class="review-subheader">
+        					Comment
+        				</p>
+        				<p class="text">
+        				<%= truncate review.comment, :length => 300 %>
+        				</p>
+        			  </div>
+        			  <div class="review-read-more">
+        			    <a href="#" class="review-full-btn">Read full review</a>
+        			  </div>
+        			</div>
+        		</div>
+        	</div>
+        <% end %>
+        </div>
+      </div>
+    <% else %>
+      <div class="no-reviews"> No reviews. Be the first one and submit review! </div>
+    <% end %>
+  </div>
+  
+</div>

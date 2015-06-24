@@ -1,9 +1,19 @@
 <div class="notify-container">
+  <% if !user_signed_in? %>
   <div class="reg-notify">
     Register with 
     <%= link_to "Site registration", user_registration_path(:reg_action => 'site'), :class => "red-btn" %>
     or login with
     <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), :class => "green-btn" %>
     to get full access!
-  </div>
+  </div> 
+  <% elsif flash.take(1).each do |type, msg|%>
+  	  <% if type == "errors"%>
+  	    <% next %>
+  	  <% end %>
+	  <div class="<%=type%>-notify">
+	    <%= msg %>
+	  </div> 
+    <% end %>
+  <% end %>
 </div>
