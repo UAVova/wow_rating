@@ -1,5 +1,5 @@
 class IndexController < ApplicationController
   def index
-  	@servers = Server.all.sort { |a, b| b.votes.count <=> a.votes.count   }
+  	@servers = Server.all.order("votes_count DESC")
   end
 end
